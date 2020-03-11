@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        @foreach($products as $key => $product)
+        @forelse($products as $key => $product)
             <div class="col-lg-4 col-md-4 col-sm-4 mb-5">
                 <div class="card" style="width: 100%;">
                     @if($product->photos->count())
@@ -21,7 +21,9 @@
                 </div>
             </div>
             @if($key + 1 % 3 == 0) </div><div class="row">@endif
-        @endforeach
+        @empty
+
+        @endforelse
     </div>
 
     <div class="row mb-5">
