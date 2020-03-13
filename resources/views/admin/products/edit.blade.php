@@ -44,7 +44,7 @@
 
         <div class="form-group">
             <label for="">Preço</label>
-            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{$product->price}}">
+            <input type="text" id="price" name="price" class="form-control @error('price') is-invalid @enderror" value="R$ {{number_format($product->price, 2, ',', '.')}}">
             @error('price')
             <div class="invalid-feedback">
                 {{$message}}
@@ -113,4 +113,16 @@
         @endforeach
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="{{asset('assets/js/jquerymaskmoney/jquery.maskMoney.min.js')}}"></script>
+    <script>
+        $('#price').maskMoney({
+            prefix: 'R$ ',
+            allowNegative: false,
+            thousands: '.',
+            decimal: ','
+        })
+    </script>
 @endsection

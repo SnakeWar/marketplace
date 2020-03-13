@@ -75,3 +75,14 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+
+{{--    <script>--}}
+{{--        var selector = document.getElementById("email");--}}
+
+{{--        var im = new Inputmask("email");--}}
+{{--        im.mask(selector);--}}
+{{--    </script>--}}
+
+@endsection

@@ -30,6 +30,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $userStore = auth()->user();
+
+        if (!$userStore->store()->exists())
+        {
+            flash('É preciso criar uma loja para cadastrar produtos!')->warning();
+            return redirect()->route('admin.stores.index');
+        }
+
         $userStore = auth()->user()->store;
         $products = $userStore->products()->paginate(10);
 
@@ -58,6 +66,8 @@ class ProductController extends Controller
 
         $data = $request->all();
         $categories = $request->get('categories', null);
+
+        $data['price'] = formatPriceToDatabase($data['price']);
 
         $store = auth()->user()->store;
 //        $store = \App\Store::find($data['store']);
@@ -116,6 +126,8 @@ class ProductController extends Controller
     {
 
         $data = $request->all();
+
+        $data['price'] = formatPriceToDatabase($data['price']);
 
         $categories = $request->get('categories', null);
 

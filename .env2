@@ -6,12 +6,12 @@ APP_URL=http://localhost
 
 LOG_CHANNEL=stack
 
-DB_CONNECTION=postgre
-DB_HOST=ec2-35-174-88-65.compute-1.amazonaws.com
-DB_PORT=5432
-DB_DATABASE=dc4e0qrfdtucvm
-DB_USERNAME=ossbiawypqhqmt
-DB_PASSWORD=3f3320895f72c5e26536ffdb30137811055aecc9706acaac225370a180ffc7b1
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=marketplace_db
+DB_USERNAME=marketplace_usr
+DB_PASSWORD=Marketplace_123
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file

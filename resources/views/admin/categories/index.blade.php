@@ -21,7 +21,7 @@
             </td>
             <td>
                 <div class="btn-group">
-                    <a href="{{route('admin.categories.edit', ['category' => $category->id])}}" class="btn btn-sm btn-warning">EDITAR</a>
+                    <a href="{{route('admin.categories.edit', ['category' => $category->id])}}" class="btn btn-sm btn-warning mr-2">EDITAR</a>
                     <form action="{{route('admin.categories.destroy', ['category' => $category->id])}}" method="post">
                         @csrf
                         @method("DELETE")

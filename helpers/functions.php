@@ -6,3 +6,8 @@ function filterItemsByStoreId(array $items, $storeId)
         return $line['store_id'] == $storeId;
     });
 }
+
+function formatPriceToDatabase($price)
+{
+    return trim(str_replace(['R$', '.', ',',], ['','', '.'], $price));
+}

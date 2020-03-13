@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-md-12 form-group">
                         <label for="">CPF do Cartão </label><span class="brand"></span>
-                        <input type="text" class="form-control" name="card_cpf">
+                        <input id="cpf" type="text" class="form-control" name="card_cpf">
                     </div>
                 </div>
 
@@ -154,7 +154,7 @@
                     window.location.href = '{{route('checkout.thanks')}}?order=' + res.data.order;
                 },
                 error: function (err) {
-                    console.log(err);             }
+                    console.log('AJAX: ', err);             }
             });
         }
 
@@ -169,7 +169,7 @@
                     document.querySelector('div.installments').innerHTML = selectInstallments;
                 },
                 error: function (err) {
-                    console.log('Erro brand', err);
+                    console.log('Erro brand: ', err);
                 },
                 complete: function (res) {
                     // console.log('Complete: ', res);
@@ -192,6 +192,12 @@
 
             return select;
         }
+    </script>
 
+    <script>
+        var selector = document.getElementById("cpf");
+
+        var im = new Inputmask("999.999.999-99");
+        im.mask(selector);
     </script>
 @endsection

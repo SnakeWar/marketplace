@@ -28,7 +28,7 @@ class CheckoutController extends Controller
 
 //        dd($cartItems);
 
-        var_dump(session()->get('pagseguro_session_code'));
+//        var_dump(session()->get('pagseguro_session_code'));
 
         return  view('checkout', compact('cartItems'));
     }
@@ -76,7 +76,7 @@ class CheckoutController extends Controller
 
         }catch (\Exception $e){
 
-            $message = env('APP_DEBUG') ? $e->getMessage() : 'Erro ao processar pedido!';
+            $message = env('APP_DEBUG') ? 'Erro: ' . $e->getMessage() : 'Erro ao processar pedido!';
 
             return response()->json([
                 'data' => [

@@ -26,7 +26,7 @@
                              aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
                                <ul class="">
-                                   <dd>{{$order}}</dd>
+{{--                                   <dd>{{$order}}</dd>--}}
 {{--                                   @php $items = unserialize($order->items); @endphp--}}
                                    @php $total = 0;@endphp
                                    @foreach(filterItemsByStoreId($items = unserialize($order->items), auth()->user()->store->id) as $item)
