@@ -7,8 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Marketplace</title>
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('css/estilo.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     @yield('stylesheets')
     <style>
         .active-2 a{
@@ -35,17 +39,21 @@
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item @if(request()->is('/')) active @endif">
-                    <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(página atual)</span></a>
+                    <a class="nav-link text-white" href="{{route('home')}}">Home <span class="sr-only">(página atual)</span></a>
                 </li>
                 <li class="nav-item dropdown @if(!request()->is('category/*')) active-2 @endif">
-                    <a class="nav-link dropdown-toggle" style="background-color: #343a40;color: #fff" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white" style="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categorias
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #343a40;border: none">
                         @foreach($categories as $category)
-                            <a class="dropdown-item desativado @if(request()->is('category/' . $category->slug)) active-3 @endif" href="{{route('category.single', ['slug' => $category->slug])}}">{{$category->name}}</a>
+                            <a class="dropdown-item text-white desativado @if(request()->is('category/' . $category->slug)) active-3 @endif" href="{{route('category.single', ['slug' => $category->slug])}}">{{$category->name}}</a>
                         @endforeach
                     </div>
+                </li>
+                <li class="nav-item">
+                    <!-- Instagram -->
+                    <a class="btn btn-primary" style="background-color: #f93154" href="https://www.instagram.com/bbcollectibles_br/" role="button"><i class="fab fa-instagram"></i></a>
                 </li>
 {{--                @foreach($categories as $category)--}}
 {{--                    <li class="nav-item">--}}
@@ -97,6 +105,7 @@
 {{--        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="--}}
 {{--        crossorigin="anonymous"></script>--}}
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/scripts.js')}}"></script>
 @yield('scripts')
 </body>
 </html>

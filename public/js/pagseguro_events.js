@@ -43,6 +43,9 @@ submitButton.addEventListener('click', function (event) {
             processPayment(res.card.token);
         },
         error: function (err) {
+            err.errors.forEach(function (value,key){
+               console.log(key+': '+value);
+            });
             console.log(err);
         },
         complete: function (res) {

@@ -1,17 +1,16 @@
 @extends('layouts.app')
-
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 @section('content')
     <h1>
         Editar Produto
     </h1>
 
     <form action="{{route('admin.products.update', ['product' => $product->id])}}" method="post" enctype="multipart/form-data">
-
         @csrf
         @method("PUT")
-
         <input type="hidden" name="_method" value="PUT">
-
         <div class="form-group">
             <label for="">Nome Produto</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{$product->name}}">
@@ -21,7 +20,6 @@
             </div>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="">Descrição</label>
             <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{$product->description}}">
@@ -31,7 +29,6 @@
             </div>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="">Conteúdo</label>
             <textarea name="body" cols="30" rows="10" class="form-control @error('body') is-invalid @enderror">{{$product->body}}</textarea>
@@ -54,7 +51,7 @@
 
         <div class="form-group">
             <label for="">Categorias</label>
-            <select name="categories[]" id="" class="form-control" multiple>
+            <select name="categories[]" id="" class="form-control js-example-basic-multiple" multiple>
                 @foreach($categories as $category)
                     <option value="{{$category->id}}" @if($product->categories->contains($category)) selected @endif>{{$category->name}}</option>
                 @endforeach
@@ -116,6 +113,7 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{asset('assets/js/jquerymaskmoney/jquery.maskMoney.min.js')}}"></script>
     <script>
         $('#price').maskMoney({
@@ -124,5 +122,9 @@
             thousands: '.',
             decimal: ','
         })
+        // Select 2
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
     </script>
 @endsection

@@ -10,7 +10,7 @@ use PagSeguro\Services\Session;
 use PagSeguro\Configuration\Configure;
 use App\Payment\PagSeguro\CreditCard;
 use App\Store;
-use Ramsey\Uuiid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 class CheckoutController extends Controller
 {
@@ -78,7 +78,7 @@ class CheckoutController extends Controller
                 ]
             ]);
 
-        }catch (\Exception $e){
+        }catch (\Throwable $e){
 
             $message = env('APP_DEBUG') ? 'Erro: ' . $e->getMessage() : 'Erro ao processar pedido!';
 
@@ -119,7 +119,7 @@ class CheckoutController extends Controller
 
             return response()->json([], 204);
 
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
 
             $message = env('APP_DEBUG') ? $e->getMessage() : '';
 

@@ -9,6 +9,7 @@ use App\Store;
 use App\Category;
 use App\Http\Requests\ProductRequest;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -65,6 +66,7 @@ class ProductController extends Controller
     {
 
         $data = $request->all();
+        $data['slug'] = Str::slug($data['name']);
         $categories = $request->get('categories', null);
 
         $data['price'] = formatPriceToDatabase($data['price']);

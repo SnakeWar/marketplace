@@ -63,3 +63,9 @@ function drawSelectInstallments(installments) {
 
     return select;
 }
+
+function showErrorMessages(messages){
+    return `
+        <div class="alert alert-danger">${message}</div>
+    `;
+}

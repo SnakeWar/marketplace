@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/pagseguro_functions.js": "/js/pagseguro_functions.js",
-    "/js/pagseguro_events.js": "/js/pagseguro_events.js"
+    "/js/pagseguro_events.js": "/js/pagseguro_events.js",
+    "/js/scripts.js": "/js/scripts.js",
+    "/css/estilo.css": "/css/estilo.css"
 }

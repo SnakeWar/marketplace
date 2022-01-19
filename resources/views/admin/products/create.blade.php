@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 @section('content')
     <h1>
         Criar Produto
@@ -50,7 +52,7 @@
         </div>
         <div class="form-group">
             <label for="">Categorias</label>
-            <select name="categories[]" class="form-control" multiple>
+            <select name="categories[]" class="form-control select2" multiple>
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     {{$category->id}}|{{$category->name}}
@@ -93,6 +95,7 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{asset('assets/js/jquerymaskmoney/jquery.maskMoney.min.js')}}"></script>
     <script>
         $('#price').maskMoney({
@@ -101,5 +104,9 @@
             thousands: '.',
             decimal: ','
         })
+        // Select 2
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
     </script>
 @endsection
